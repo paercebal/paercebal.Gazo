@@ -60,6 +60,7 @@
     <Compile Include="Utils\CapturingImage.xaml.cs">
       <DependentUpon>CapturingImage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Utils\Globals.cs" />
     <Compile Include="Utils\Image.xaml.cs">
       <DependentUpon>Image.xaml</DependentUpon>
     </Compile>
