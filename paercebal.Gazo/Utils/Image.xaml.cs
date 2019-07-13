@@ -40,6 +40,17 @@ namespace paercebal.Gazo.Utils
             }
         }
 
+        public void SetImage(System.Windows.Media.Imaging.BitmapSource bitmap)
+        {
+            this.CopiedImage.Source = bitmap;
+        }
+
+        public void SetName(string name)
+        {
+            this.TitleTextBox.Text = name;
+            this.Title = name;
+        }
+
         #region WPF events
         private void ToClipboardButton_Click(object sender, RoutedEventArgs e)
         {

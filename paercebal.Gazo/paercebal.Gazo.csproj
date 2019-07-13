@@ -66,6 +66,7 @@
     </Compile>
     <Compile Include="Utils\Movable.cs" />
     <Compile Include="Utils\SafeHBitmapHandle.cs" />
+    <Compile Include="Utils\ScopedHideShow.cs" />
     <Compile Include="Utils\ScreenShooting.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -110,6 +111,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
