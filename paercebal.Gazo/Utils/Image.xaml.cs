@@ -24,6 +24,7 @@ namespace paercebal.Gazo.Utils
         public Image()
         {
             InitializeComponent();
+            this.Background = Utils.Globals.GreyShadesCheckeredBrush;
         }
 
         public void SetImage(System.Drawing.Bitmap bitmap_)
