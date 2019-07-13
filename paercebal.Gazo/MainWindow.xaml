@@ -5,19 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:paercebal.Gazo"
         mc:Ignorable="d"
-        Title="Gazō" Height="65" Width="250">
+        Title="Gazō" Height="65" Width="350" Background="AliceBlue">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
-            <!--
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
-            -->
         </Grid.ColumnDefinitions>
-        <!--
-        <Button Name="CaptureFromScreenButton" Grid.Row="0" Grid.Column="0" Click="CaptureFromScreenButton_Click">Capture</Button>
-        <Button Name="CloseCaptureButton" Grid.Row="0" Grid.Column="1" Click="CloseCaptureButton_Click">Close Capture</Button>
-        -->
-        <Button Name="CaptureFromClipboardButton" Grid.Row="0" Grid.Column="2" Click="CaptureFromClipboardButton_Click">Capture from Clipboard</Button>
+        <Button Name="CaptureFromScreenButton" Grid.Row="0" Grid.Column="0" Click="CaptureFromScreenButton_Click">Screen Capture</Button>
+        <Button Name="CloseCaptureButton" Grid.Row="0" Grid.Column="1" Click="CloseCaptureButton_Click">Close Screen Capture</Button>
+        <Button Name="CaptureFromClipboardButton" Grid.Row="0" Grid.Column="2" Click="CaptureFromClipboardButton_Click">Clipboard Capture</Button>
     </Grid>
 </Window>

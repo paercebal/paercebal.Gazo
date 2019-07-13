@@ -5,11 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:paercebal.Gazo.Utils"
         mc:Ignorable="d"
-        Title="CapturingImage" Height="450" Width="800">
+        Title="Capturing Image" Height="450" Width="800" Background="Black"
+        Activated="CapturingImage_Activated" Closed="CapturingImage_Closed"
+        KeyUp="CapturingImage_KeyUp"
+        MouseLeftButtonDown="CapturingImage_MouseLeftButtonDown" MouseLeftButtonUp="CapturingImage_MouseLeftButtonUp" MouseMove="CapturingImage_MouseMove"
+        >
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Image Name="CopiedImage"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <!--
+            <RowDefinition Height="Auto"/>
+            -->
+        </Grid.RowDefinitions>
+        <Canvas Name="CapturingCanvas" Grid.Row="0" Grid.Column="0"/>
+        <!--
+        <TextBox Name="DebugOutput" Grid.Row="1" Grid.Column="0"/>
+        -->
     </Grid>
 </Window>

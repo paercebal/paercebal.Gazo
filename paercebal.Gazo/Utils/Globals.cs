@@ -21,6 +21,9 @@ namespace paercebal.Gazo.Utils
         static public readonly Brush BlackAndWhiteCheckeredBrush = CheckeredBrush(Colors.Black, Colors.White);
         static public readonly Brush GreyShadesCheckeredBrush = CheckeredBrush(Color.FromArgb(255, 96, 96, 96), Color.FromArgb(255, 160, 160, 160));
         static public readonly Brush GreyShadesAndAlphaCheckeredBrush = CheckeredBrush(Color.FromArgb(64, 0, 0, 0), Color.FromArgb(64, 255, 255, 255));
+        static public readonly Brush WhiteAndAlphaBrush = new SolidColorBrush(Color.FromArgb(64, 255, 255, 255));
+        static public readonly Brush BlackAndAlphaBrush = new SolidColorBrush(Color.FromArgb(64, 0, 0, 0));
+        static public readonly Brush GreyAndAlphaBrush = new SolidColorBrush(Color.FromArgb(128, 128, 128, 128));
 
         static Brush CheckeredBrush(Color colorOne, Color colorTwo)
         {

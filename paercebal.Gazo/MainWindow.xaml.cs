@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -22,25 +23,40 @@ namespace paercebal.Gazo
     /// </summary>
     public partial class MainWindow : Window
     {
-        Utils.CapturingImage captureWindow;
-        List<Utils.Image> imageWindows = new List<Utils.Image>();
+        private Utils.CapturingImage captureWindow;
+        private List<Utils.Image> imageWindows = new List<Utils.Image>();
+        private long counter = 0;
 
         public MainWindow()
         {
             InitializeComponent();
         }
 
+        private string GenerateNewImageName()
+        {
+            return string.Format("Image #{0}", this.counter++);
+        }
+
         #region Screen Capture Handling
         private void CaptureFromScreenButton_Click(object sender, RoutedEventArgs e)
         {
+            if ((this.captureWindow != null) && (this.captureWindow.IsClosed))
+            {
+                this.captureWindow = null;
+            }
+
             if (this.captureWindow == null)
             {
-                using (var screenshot = new Utils.Movable<System.Drawing.Bitmap>(Utils.ScreenShooting.CaptureImageFromFullScreen()))
+                using (var scopedHideShow = new Utils.ScopedHideShow(this))
                 {
-                    this.captureWindow = new Utils.CapturingImage();
-                    this.captureWindow.Owner = this;
-                    this.captureWindow.SetImage(screenshot.Release());
-                    this.captureWindow.Show();
+                    Thread.Sleep(500); // TODO This is both ugly and wrong. Wait for asynchronous "hidden" event instead. This will complicate scoped handling.
+                    using (var screenshot = new Utils.Movable<System.Drawing.Bitmap>(Utils.ScreenShooting.CaptureImageFromFullScreen()))
+                    {
+                        this.captureWindow = new Utils.CapturingImage();
+                        this.captureWindow.Owner = this;
+                        this.captureWindow.SetImage(screenshot.Release());
+                        this.captureWindow.Show();
+                    }
                 }
             }
         }
@@ -49,7 +65,10 @@ namespace paercebal.Gazo
         {
             if (this.captureWindow != null)
             {
-                this.captureWindow.Close();
+                if(!this.captureWindow.IsClosed)
+                {
+                    this.captureWindow.Close();
+                }
                 this.captureWindow = null;
             }
         }
@@ -80,6 +99,7 @@ namespace paercebal.Gazo
                     this.imageWindows.Add(imageWindow);
                     imageWindow.Owner = this;
                     imageWindow.SetImage(screenshot.Release());
+                    imageWindow.SetName(this.GenerateNewImageName());
                     imageWindow.Show();
                 }
             }
@@ -90,5 +110,18 @@ namespace paercebal.Gazo
         }
 
         #endregion Clipboard Capture Handling
+        #region Create Image From Screenshot Selection
+
+        public void CreateImageFromBitmap(System.Windows.Media.Imaging.BitmapSource bitmap)
+        {
+            var imageWindow = new Utils.Image();
+            this.imageWindows.Add(imageWindow);
+            imageWindow.Owner = this;
+            imageWindow.SetImage(bitmap);
+            imageWindow.SetName(this.GenerateNewImageName());
+            imageWindow.Show();
+        }
+
+        #endregion Create Image From Screenshot Selection
     }
 }
