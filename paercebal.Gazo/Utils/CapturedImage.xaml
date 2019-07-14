@@ -22,17 +22,15 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
-                    <!--
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    -->
                 </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
                 <Button Name="FromClipboardButton"  Grid.Row="0" Grid.Column="0" Click="FromClipboardButton_Click">From Clipboard</Button>
                 <Button Name="ToClipboardButton"  Grid.Row="0" Grid.Column="1" Click="ToClipboardButton_Click">To Clipboard</Button>
-                <!--
-                <Button Name="LoadButton"  Grid.Row="0" Grid.Column="2" Click="LoadButton_Click">Load</Button>
-                <Button Name="SaveButton"  Grid.Row="0" Grid.Column="3" Click="SaveButton_Click">Save</Button>
-                -->
+                <Button Name="LoadButton"  Grid.Row="1" Grid.Column="0" Click="LoadButton_Click">Load</Button>
+                <Button Name="SaveButton"  Grid.Row="1" Grid.Column="1" Click="SaveButton_Click">Save</Button>
             </Grid>
         </Grid>
     </Grid>

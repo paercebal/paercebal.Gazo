@@ -2,23 +2,24 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace paercebal.Gazo.Utils
 {
-    public class SafeHBitmapHandle : SafeHandleZeroOrMinusOneIsInvalid
+    public class SafeIntPtrHandle : SafeHandleZeroOrMinusOneIsInvalid
     {
         [SecurityCritical]
-        public SafeHBitmapHandle(IntPtr preexistingHandle)
+        public SafeIntPtrHandle(IntPtr preexistingHandle)
             : base(true)
         {
             SetHandle(preexistingHandle);
         }
 
         [SecurityCritical]
-        public SafeHBitmapHandle(IntPtr preexistingHandle, bool ownsHandle)
+        public SafeIntPtrHandle(IntPtr preexistingHandle, bool ownsHandle)
             : base(ownsHandle)
         {
             SetHandle(preexistingHandle);
@@ -31,7 +32,9 @@ namespace paercebal.Gazo.Utils
 
         protected override bool ReleaseHandle()
         {
-            return DeleteObject(handle);
+            if (handle != IntPtr.Zero)
+                Marshal.FreeHGlobal(handle);
+            return true;
         }
 
         [System.Runtime.InteropServices.DllImport("gdi32.dll")]

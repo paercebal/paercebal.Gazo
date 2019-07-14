@@ -52,10 +52,9 @@ namespace paercebal.Gazo.Utils
         {
             using (var bitmap = new Movable<System.Drawing.Bitmap>(bitmap_))
             {
-                var handle = bitmap.Get().GetHbitmap();
-                using (var safeHandle = new SafeHBitmapHandle(handle))
+                using (var safeHandle = new SafeHBitmapHandle(bitmap.Get().GetHbitmap()))
                 {
-                    this.CopiedImage.Source = Imaging.CreateBitmapSourceFromHBitmap(handle, IntPtr.Zero, Int32Rect.Empty,
+                    this.CopiedImage.Source = Imaging.CreateBitmapSourceFromHBitmap(safeHandle.Handle, IntPtr.Zero, Int32Rect.Empty,
                     BitmapSizeOptions.FromEmptyOptions());
                 }
             }
