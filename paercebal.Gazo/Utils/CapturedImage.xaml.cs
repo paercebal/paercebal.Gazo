@@ -17,11 +17,11 @@ using System.Windows.Shell;
 namespace paercebal.Gazo.Utils
 {
     /// <summary>
-    /// Interaction logic for Image.xaml
+    /// Interaction logic for CapturedImage.xaml
     /// </summary>
-    public partial class Image : Window
+    public partial class CapturedImage : Window
     {
-        public Image()
+        public CapturedImage()
         {
             InitializeComponent();
             this.Background = Utils.Globals.GreyShadesCheckeredBrush;

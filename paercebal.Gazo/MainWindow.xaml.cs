@@ -24,7 +24,7 @@ namespace paercebal.Gazo
     public partial class MainWindow : Window
     {
         private Utils.CapturingImage captureWindow;
-        private List<Utils.Image> imageWindows = new List<Utils.Image>();
+        private List<Utils.CapturedImage> imageWindows = new List<Utils.CapturedImage>();
         private long counter = 0;
 
         public MainWindow()
@@ -96,7 +96,7 @@ namespace paercebal.Gazo
             {
                 using (var screenshot = new Utils.Movable<System.Drawing.Bitmap>(Utils.ScreenShooting.CaptureImageFromClipboard()))
                 {
-                    var imageWindow = new Utils.Image();
+                    var imageWindow = new Utils.CapturedImage();
                     this.imageWindows.Add(imageWindow);
                     imageWindow.Owner = this;
                     imageWindow.SetImage(screenshot.Release());
@@ -115,7 +115,7 @@ namespace paercebal.Gazo
 
         public void CreateImageFromBitmap(System.Windows.Media.Imaging.BitmapSource bitmap)
         {
-            var imageWindow = new Utils.Image();
+            var imageWindow = new Utils.CapturedImage();
             this.imageWindows.Add(imageWindow);
             imageWindow.Owner = this;
             imageWindow.SetImage(bitmap);

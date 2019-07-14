@@ -61,8 +61,8 @@
       <DependentUpon>CapturingImage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Utils\Globals.cs" />
-    <Compile Include="Utils\Image.xaml.cs">
-      <DependentUpon>Image.xaml</DependentUpon>
+    <Compile Include="Utils\CapturedImage.xaml.cs">
+      <DependentUpon>CapturedImage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Utils\Movable.cs" />
     <Compile Include="Utils\SafeHBitmapHandle.cs" />
@@ -84,7 +84,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Utils\Image.xaml">
+    <Page Include="Utils\CapturedImage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
