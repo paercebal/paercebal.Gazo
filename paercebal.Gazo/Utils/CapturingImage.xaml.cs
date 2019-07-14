@@ -140,10 +140,13 @@ namespace paercebal.Gazo.Utils
         {
             TwoPoints openFrame = DeduceTopLeftAndBottomRightPoints(new TwoPoints(DragMouseStart, DragMouseCurrent));
 
-            CroppedBitmap cb = new CroppedBitmap((BitmapSource)this.CopiedImage.Source, new Int32Rect((int)openFrame.One.X, (int)openFrame.One.Y, (int)(openFrame.Two.X - openFrame.One.X), (int)(openFrame.Two.Y - openFrame.One.Y)));
+            if(openFrame.One != openFrame.Two)
+            {
+                CroppedBitmap cb = new CroppedBitmap((BitmapSource)this.CopiedImage.Source, new Int32Rect((int)openFrame.One.X, (int)openFrame.One.Y, (int)(openFrame.Two.X - openFrame.One.X), (int)(openFrame.Two.Y - openFrame.One.Y)));
 
-            ((MainWindow)this.Owner).CreateImageFromBitmap(cb);
-            ((MainWindow)this.Owner).CloseCaptureWindow();
+                ((MainWindow)this.Owner).CreateImageFromBitmap(cb);
+                ((MainWindow)this.Owner).CloseCaptureWindow();
+            }
         }
 
         #region WPF events
