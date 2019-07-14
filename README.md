@@ -22,8 +22,15 @@ GIMP.
 In future versions, I expect I'll add load/save capabilities, as well as partial screen
 captures (like the Snipping Tool, actually), with delays, etc..
 
+# Features
+
+- Capture selection from screen
+- Controlled delay (from 0 to 5 seconds) before capturing screenshot
+- Capture from Clipboard/Save into Clipboard
+- Load from file/Save to file
+
 # TODO
 
-- Implement user controlled delay
-- Implement file Load/Save for Images
 - Implement capture of hovered windows, instead of a selected square
+- Implement capture of user-defined shape, instead of a selected square
+- Make it more beautiful, because seriously, THIS IS SPARTA.
