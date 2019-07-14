@@ -5,15 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:paercebal.Gazo"
         mc:Ignorable="d"
-        Title="Gazō" Height="65" Width="350" Background="AliceBlue">
+        Title="Gazō" SizeToContent="WidthAndHeight"  Background="AliceBlue">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Button Name="CaptureFromScreenButton" Grid.Row="0" Grid.Column="0" Click="CaptureFromScreenButton_Click">Screen Capture</Button>
-        <Button Name="CloseCaptureButton" Grid.Row="0" Grid.Column="1" Click="CloseCaptureButton_Click">Close Screen Capture</Button>
-        <Button Name="CaptureFromClipboardButton" Grid.Row="0" Grid.Column="2" Click="CaptureFromClipboardButton_Click">Clipboard Capture</Button>
+        <Button Name="CaptureFromClipboardButton" Grid.Row="0" Grid.Column="0" Click="CaptureFromClipboardButton_Click" Padding="10,7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">Clipboard Capture</Button>
+        <Button Name="CaptureFromScreenButton" Grid.Row="0" Grid.Column="1" Click="CaptureFromScreenButton_Click" Padding="10,7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">Screen Capture</Button>
+        <ComboBox Name="DelayComboBox" Grid.Row="0" Grid.Column="2" SelectedIndex="0" Padding="10,7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <ComboBoxItem Tag="0">No Delay</ComboBoxItem>
+            <ComboBoxItem Tag="1">Delay 1s</ComboBoxItem>
+            <ComboBoxItem Tag="2">Delay 2s</ComboBoxItem>
+            <ComboBoxItem Tag="3">Delay 3s</ComboBoxItem>
+            <ComboBoxItem Tag="4">Delay 4s</ComboBoxItem>
+            <ComboBoxItem Tag="5">Delay 5s</ComboBoxItem>
+        </ComboBox>
+        <!--<Button Name="CloseCaptureButton" Grid.Row="0" Grid.Column="2" Click="CloseCaptureButton_Click" Padding="10,7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">Close Screen Capture</Button>-->
     </Grid>
 </Window>

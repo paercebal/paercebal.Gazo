@@ -49,7 +49,8 @@ namespace paercebal.Gazo
             {
                 using (var scopedHideShow = new Utils.ScopedHideShow(this))
                 {
-                    Thread.Sleep(500); // TODO This is both ugly and wrong. Wait for asynchronous "hidden" event instead. This will complicate scoped handling.
+                    int delay = 1000 * int.Parse(((ComboBoxItem)this.DelayComboBox.SelectedItem)?.Tag?.ToString() ?? "0");
+                    Thread.Sleep(500 + delay); // TODO This is both ugly and wrong. Wait for asynchronous "hidden" event instead. This will complicate scoped handling.
                     using (var screenshot = new Utils.Movable<System.Drawing.Bitmap>(Utils.ScreenShooting.CaptureImageFromFullScreen()))
                     {
                         this.captureWindow = new Utils.CapturingImage();
