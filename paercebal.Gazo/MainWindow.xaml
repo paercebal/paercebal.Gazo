@@ -5,16 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:paercebal.Gazo"
         mc:Ignorable="d"
-        Title="Gazō" SizeToContent="WidthAndHeight"  Background="AliceBlue">
+        Title="Gazō" SizeToContent="WidthAndHeight"  Background="#66CCFF">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Button Name="CaptureFromClipboardButton" Grid.Row="0" Grid.Column="0" Click="CaptureFromClipboardButton_Click" Padding="10,7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">Clipboard Capture</Button>
-        <Button Name="CaptureFromScreenButton" Grid.Row="0" Grid.Column="1" Click="CaptureFromScreenButton_Click" Padding="10,7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">Screen Capture</Button>
-        <ComboBox Name="DelayComboBox" Grid.Row="0" Grid.Column="2" SelectedIndex="0" Padding="10,7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Button Name="CaptureFromClipboardButton" Grid.Row="0" Grid.Column="0" Click="CaptureFromClipboardButton_Click" Padding="10,7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">Clipboard</Button>
+        <Button Name="CaptureFromDiskButton" Grid.Row="0" Grid.Column="1" Click="CaptureFromDiskButton_Click" Padding="10,7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">Disk</Button>
+        <Button Name="CaptureFromScreenButton" Grid.Row="0" Grid.Column="3" Click="CaptureFromScreenButton_Click" Padding="10,7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">Screen</Button>
+        <ComboBox Name="DelayComboBox" Grid.Row="0" Grid.Column="4" SelectedIndex="0" Padding="10,7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <ComboBoxItem Tag="0">No Delay</ComboBoxItem>
             <ComboBoxItem Tag="1">Delay 1s</ComboBoxItem>
             <ComboBoxItem Tag="2">Delay 2s</ComboBoxItem>

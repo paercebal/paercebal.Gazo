@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:paercebal.Gazo.Utils"
         mc:Ignorable="d"
-        Title="Image" Height="150" Width="250" Background="#66CCFF">
+        Title="Image" Height="250" Width="200" Background="#66CCFF">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
