@@ -18,9 +18,14 @@ namespace paercebal.Gazo.Utils
 
     public class ScreenShooting
     {
+        static public Drawing.Rectangle GetScreenSize()
+        {
+            return Forms.Screen.GetBounds(Drawing.Point.Empty);
+        }
+
         static public Drawing.Bitmap CaptureImageFromFullScreen()
         {
-            var bounds = Forms.Screen.GetBounds(Drawing.Point.Empty);
+            var bounds = GetScreenSize();
             using (var bitmap = new Movable<Drawing.Bitmap>(new Drawing.Bitmap(bounds.Width, bounds.Height)))
             {
                 using (var g = Drawing.Graphics.FromImage(bitmap.Get()))

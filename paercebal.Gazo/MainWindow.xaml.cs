@@ -111,6 +111,25 @@ namespace paercebal.Gazo
         }
 
         #endregion Clipboard Capture Handling
+        #region Disk Capture Handling
+
+        private void CaptureFromDiskButton_Click(object sender, RoutedEventArgs e)
+        {
+            using (var screenshot = new Utils.Movable<System.Drawing.Bitmap>(Utils.ScreenShooting.LoadImage()))
+            {
+                if(screenshot.Get() != null)
+                {
+                    var imageWindow = new Utils.CapturedImage();
+                    this.imageWindows.Add(imageWindow);
+                    imageWindow.Owner = this;
+                    imageWindow.SetImage(screenshot.Release());
+                    imageWindow.SetName(this.GenerateNewImageName());
+                    imageWindow.Show();
+                }
+            }
+        }
+
+        #endregion Disk Capture Handling
         #region Create Image From Screenshot Selection
 
         public void CreateImageFromBitmap(System.Windows.Media.Imaging.BitmapSource bitmap)
