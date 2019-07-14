@@ -34,3 +34,12 @@ captures (like the Snipping Tool, actually), with delays, etc..
 - Implement capture of hovered windows, instead of a selected square
 - Implement capture of user-defined shape, instead of a selected square
 - Make it more beautiful, because seriously, THIS IS SPARTA.
+
+
+#Icon
+
+Artist: Icons8
+Iconset: Windows 8 Icons (2122 icons)
+License: Linkware (Backlink to http://icons8.com required)
+Commercial usage: Allowed
+License URL: http://icons8.com/license/
