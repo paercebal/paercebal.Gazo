@@ -31,10 +31,9 @@ namespace paercebal.Gazo.Utils
         {
             using (var bitmap = new Movable<System.Drawing.Bitmap>(bitmap_))
             {
-                var handle = bitmap.Get().GetHbitmap();
-                using (var safeHandle = new SafeHBitmapHandle(handle))
+                using (var safeHandle = new SafeHBitmapHandle(bitmap.Get().GetHbitmap()))
                 {
-                    this.CopiedImage.Source = Imaging.CreateBitmapSourceFromHBitmap(handle, IntPtr.Zero, Int32Rect.Empty,
+                    this.CopiedImage.Source = Imaging.CreateBitmapSourceFromHBitmap(safeHandle.Handle, IntPtr.Zero, Int32Rect.Empty,
                     BitmapSizeOptions.FromEmptyOptions());
                 }
             }
@@ -54,17 +53,7 @@ namespace paercebal.Gazo.Utils
         #region WPF events
         private void ToClipboardButton_Click(object sender, RoutedEventArgs e)
         {
-            double width = this.CopiedImage.ActualWidth;
-            double height = this.CopiedImage.ActualHeight;
-            RenderTargetBitmap bmpCopied = new RenderTargetBitmap((int)Math.Round(width), (int)Math.Round(height), 96, 96, PixelFormats.Default);
-            DrawingVisual dv = new DrawingVisual();
-            using (DrawingContext dc = dv.RenderOpen())
-            {
-                VisualBrush vb = new VisualBrush(this.CopiedImage);
-                dc.DrawRectangle(vb, null, new Rect(new Point(), new Size(width, height)));
-            }
-            bmpCopied.Render(dv);
-            Clipboard.SetImage(bmpCopied);
+            Utils.ScreenShooting.SaveImageIntoClipboard(this.CopiedImage);
         }
 
         private void FromClipboardButton_Click(object sender, RoutedEventArgs e)
@@ -74,10 +63,24 @@ namespace paercebal.Gazo.Utils
 
         private void LoadButton_Click(object sender, RoutedEventArgs e)
         {
+            var image = Utils.ScreenShooting.LoadImage();
+            if(image != null)
+            {
+                this.SetImage(image);
+            }
         }
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
+            var bitmap = this.CopiedImage.Source as BitmapSource;
+
+            if(bitmap == null)
+            {
+                MessageBox.Show("For some reason, the bitmap cannot be saved. Please Debug. Sorry.", "Error when saving", MessageBoxButton.OK);
+                return;
+            }
+
+            Utils.ScreenShooting.SaveImage(this.Title, bitmap);
         }
 
         private void TitleTextBox_KeyUp(object sender, KeyEventArgs e)
