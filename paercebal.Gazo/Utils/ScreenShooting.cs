@@ -36,7 +36,7 @@ namespace paercebal.Gazo.Utils
             }
         }
 
-        static public Drawing.Bitmap CaptureImageFromClipboard()
+        static public Drawing.Bitmap CaptureImageFromClipboard() // throws System.NullReferenceException
         {
             return new Drawing.Bitmap(Forms.Clipboard.GetImage());
         }

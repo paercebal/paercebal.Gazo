@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:paercebal.Gazo"
         mc:Ignorable="d"
-        Title="Gazō" SizeToContent="WidthAndHeight"  Background="#66CCFF">
+        Title="Gazō" SizeToContent="WidthAndHeight"  Background="#66CCFF"
+        KeyUp="Window_KeyUp"
+        >
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
