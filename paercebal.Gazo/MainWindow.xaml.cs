@@ -71,6 +71,7 @@ namespace paercebal.Gazo
                     this.captureWindow.Close();
                 }
                 this.captureWindow = null;
+                this.Focus();
             }
         }
 
@@ -90,7 +91,7 @@ namespace paercebal.Gazo
         #endregion Screen Capture Handling
         #region Clipboard Capture Handling
 
-        private void CaptureFromClipboardButton_Click(object sender, RoutedEventArgs e)
+        private void CaptureFromClipboard()
         {
             try
             {
@@ -104,7 +105,7 @@ namespace paercebal.Gazo
                     imageWindow.Show();
                 }
             }
-            catch(System.NullReferenceException)
+            catch (System.NullReferenceException)
             {
                 MessageBox.Show("There is no valid image in the Clipboard", "Failure", MessageBoxButton.OK);
             }
@@ -143,5 +144,27 @@ namespace paercebal.Gazo
         }
 
         #endregion Create Image From Screenshot Selection
+        #region WPF events
+        private void Window_KeyUp(object sender, KeyEventArgs e)
+        {
+            if ((Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control)
+            {
+                switch (e.Key)
+                {
+                    case Key.V:
+                        {
+                            this.CaptureFromClipboard();
+                            break;
+                        }
+                }
+            }
+        }
+
+        private void CaptureFromClipboardButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.CaptureFromClipboard();
+        }
+
+        #endregion WPF events
     }
 }

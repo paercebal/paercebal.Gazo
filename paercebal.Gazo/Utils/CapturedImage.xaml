@@ -5,7 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:paercebal.Gazo.Utils"
         mc:Ignorable="d"
-        Title="Image" Height="250" Width="200" Background="#66CCFF">
+        Title="Image" Height="250" Width="250" Background="#66CCFF"
+        Icon="pack://application:,,,/paercebal.Gazo;component/Icons8-Windows-8-Editing-Screenshot - Black-Background.ico"
+        KeyUp="Window_KeyUp"
+        >
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>

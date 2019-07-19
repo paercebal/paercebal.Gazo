@@ -25,6 +25,7 @@ namespace paercebal.Gazo.Utils
         {
             InitializeComponent();
             this.Background = Utils.Globals.GreyShadesCheckeredBrush;
+            //this.Icon = BitmapFrame.Create(new Uri("pack://application:,,,/paercebal.Gazo;component/Icons8-Windows-8-Editing-Screenshot - Black-Background.ico"));
         }
 
         public void SetImage(System.Drawing.Bitmap bitmap_)
@@ -91,6 +92,33 @@ namespace paercebal.Gazo.Utils
         private void TitleTextBox_LostFocus(object sender, RoutedEventArgs e)
         {
             this.Title = this.TitleTextBox.Text;
+        }
+
+        private void Window_KeyUp(object sender, KeyEventArgs e)
+        {
+            if ((Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control)
+            {
+                switch(e.Key)
+                {
+                    case Key.C:
+                        {
+                            Utils.ScreenShooting.SaveImageIntoClipboard(this.CopiedImage);
+                            break;
+                        }
+                    case Key.V:
+                        {
+                            try
+                            {
+                                this.SetImage(ScreenShooting.CaptureImageFromClipboard());
+                            }
+                            catch(System.NullReferenceException)
+                            {
+                                MessageBox.Show("There is no valid image in the Clipboard", "Failure", MessageBoxButton.OK);
+                            }
+                            break;
+                        }
+                }
+            }
         }
 
         #endregion WPF events

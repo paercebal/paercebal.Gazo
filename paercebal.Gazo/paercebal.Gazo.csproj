@@ -125,5 +125,8 @@
   <ItemGroup>
     <Resource Include="Icons8-Windows-8-Editing-Screenshot - White-Background.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons8-Windows-8-Editing-Screenshot - Black-Background.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
