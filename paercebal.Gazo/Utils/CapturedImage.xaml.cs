@@ -52,6 +52,7 @@ namespace paercebal.Gazo.Utils
         }
 
         #region WPF events
+		
         private void ToClipboardButton_Click(object sender, RoutedEventArgs e)
         {
             Utils.ScreenShooting.SaveImageIntoClipboard(this.CopiedImage);
@@ -119,6 +120,30 @@ namespace paercebal.Gazo.Utils
                         }
                 }
             }
+        }
+
+        private void ZoomOriginalSizeButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.ZoomBorder.Reset();
+        }
+
+        private void ImageStretchButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.ZoomBorder.Reset();
+
+            if (this.CopiedImage.Stretch == Stretch.Uniform)
+            {
+                this.CopiedImage.Stretch = Stretch.None;
+                this.ZoomOriginalSizeButton.Content = "Original";
+                this.ImageStretchButton.Content = "Stretch";
+            }
+            else
+            {
+                this.CopiedImage.Stretch = Stretch.Uniform;
+                this.ZoomOriginalSizeButton.Content = "Fill";
+                this.ImageStretchButton.Content = "No Stretch";
+            }
+
         }
 
         #endregion WPF events

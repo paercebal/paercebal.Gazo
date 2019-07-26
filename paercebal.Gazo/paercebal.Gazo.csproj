@@ -72,6 +72,7 @@
     <Compile Include="Utils\SafeIntPtrHandle.cs" />
     <Compile Include="Utils\ScopedHideShow.cs" />
     <Compile Include="Utils\ScreenShooting.cs" />
+    <Compile Include="Utils\ZoomableBorder.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

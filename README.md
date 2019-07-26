@@ -19,8 +19,7 @@ dedicated windows, where they remain available to be put again in the clipboard.
 This enables me to manage multiple images without resorting in a heavier program like
 GIMP.
 
-In future versions, I expect I'll add load/save capabilities, as well as partial screen
-captures (like the Snipping Tool, actually), with delays, etc..
+In future versions, I expect I'll add features as needed.
 
 # Features
 
@@ -28,18 +27,22 @@ captures (like the Snipping Tool, actually), with delays, etc..
 - Controlled delay (from 0 to 5 seconds) before capturing screenshot
 - Capture from Clipboard/Save into Clipboard
 - Load from file/Save to file
+- Zoomable captured image
 
 # TODO
 
+- handle multiple monitors
 - Implement capture of hovered windows, instead of a selected square
 - Implement capture of user-defined shape, instead of a selected square
 - Make it more beautiful, because seriously, THIS IS SPARTA.
 
 
-#Icon
+# Icons
 
-Artist: Icons8
-Iconset: Windows 8 Icons (2122 icons)
-License: Linkware (Backlink to http://icons8.com required)
-Commercial usage: Allowed
-License URL: http://icons8.com/license/
+Inspired by Icons8's original icon.
+
+- Artist: Icons8
+ - Iconset: Windows 8 Icons (2122 icons)
+ - License: Linkware (Backlink to http://icons8.com required)
+ - Commercial usage: Allowed
+ - License URL: http://icons8.com/license/
