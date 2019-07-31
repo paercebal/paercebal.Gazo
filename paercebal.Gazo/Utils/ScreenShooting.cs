@@ -25,12 +25,21 @@ namespace paercebal.Gazo.Utils
 
         static public Drawing.Bitmap CaptureImageFromFullScreen()
         {
-            var bounds = GetScreenSize();
-            using (var bitmap = new Movable<Drawing.Bitmap>(new Drawing.Bitmap(bounds.Width, bounds.Height)))
+            // Source: https://stackoverflow.com/a/15862043/14089
+
+            // Determine the size of the "virtual screen", which includes all monitors.
+            int screenLeft = (int)SystemParameters.VirtualScreenLeft;
+            int screenTop = (int)SystemParameters.VirtualScreenTop;
+            int screenWidth = (int)SystemParameters.VirtualScreenWidth;
+            int screenHeight = (int)SystemParameters.VirtualScreenHeight;
+
+            // Create a bitmap of the appropriate size to receive the screenshot.
+            using (var bitmap = new Movable<Drawing.Bitmap>(new Drawing.Bitmap(screenWidth, screenHeight)))
             {
+                // Draw the screenshot into our bitmap.
                 using (var g = Drawing.Graphics.FromImage(bitmap.Get()))
                 {
-                    g.CopyFromScreen(Drawing.Point.Empty, Drawing.Point.Empty, bounds.Size);
+                    g.CopyFromScreen(screenLeft, screenTop, 0, 0, bitmap.Get().Size);
                 }
                 return bitmap.Release();
             }

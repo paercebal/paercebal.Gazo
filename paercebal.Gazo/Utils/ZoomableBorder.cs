@@ -94,22 +94,23 @@ namespace paercebal.Gazo.Utils
                 var st = GetScaleTransform(child);
                 var tt = GetTranslateTransform(child);
 
-                double zoom = e.Delta > 0 ? .2 : -.2;
+                //double zoom = e.Delta > 0 ? .2 : -.2;
+                double zoom = e.Delta > 0 ? 1.2 : .8;
                 if (!(e.Delta > 0) && (st.ScaleX < .4 || st.ScaleY < .4))
                     return;
 
                 Point relative = e.GetPosition(child);
-                double abosuluteX;
-                double abosuluteY;
+                double absoluteX;
+                double absoluteY;
 
-                abosuluteX = relative.X * st.ScaleX + tt.X;
-                abosuluteY = relative.Y * st.ScaleY + tt.Y;
+                absoluteX = relative.X * st.ScaleX + tt.X;
+                absoluteY = relative.Y * st.ScaleY + tt.Y;
 
-                st.ScaleX += zoom;
-                st.ScaleY += zoom;
+                st.ScaleX *= zoom;
+                st.ScaleY *= zoom;
 
-                tt.X = abosuluteX - relative.X * st.ScaleX;
-                tt.Y = abosuluteY - relative.Y * st.ScaleY;
+                tt.X = absoluteX - relative.X * st.ScaleX;
+                tt.Y = absoluteY - relative.Y * st.ScaleY;
             }
         }
 
