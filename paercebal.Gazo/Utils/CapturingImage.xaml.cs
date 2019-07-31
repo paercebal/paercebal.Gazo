@@ -44,8 +44,12 @@ namespace paercebal.Gazo.Utils
             //this.Background = Utils.Globals.GreyShadesCheckeredBrush;
 
             // Full screen:
-            this.WindowState = WindowState.Maximized;
             this.WindowStyle = WindowStyle.None;
+            this.ResizeMode = ResizeMode.NoResize;
+            this.Left = SystemParameters.VirtualScreenLeft;
+            this.Top = SystemParameters.VirtualScreenTop;
+            this.Width = SystemParameters.VirtualScreenWidth;
+            this.Height = SystemParameters.VirtualScreenHeight;
         }
 
         public void SetImage(System.Drawing.Bitmap bitmap_)
@@ -60,6 +64,9 @@ namespace paercebal.Gazo.Utils
             }
 
             this.CapturingCanvas.Children.Add(this.CopiedImage);
+            //var t = new TextBox();
+            //t.Text = string.Format("{0}-{1} / {2}-{3}", this.Left, this.Top, this.Width, this.Height);
+            //this.CapturingCanvas.Children.Add(t);
         }
 
         private bool IsDragging = false;
