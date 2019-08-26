@@ -14,8 +14,8 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <local:ZoomableBorder x:Name="ZoomBorder" ClipToBounds="True">
-            <Image Name="CopiedImage" Grid.Row="0" Grid.Column="0" Stretch="Uniform"/>
+        <local:ZoomableBorder x:Name="ZoomBorder" ClipToBounds="False">
+            <Image Name="CopiedImage" Grid.Row="0" Grid.Column="0" Stretch="None"/>
         </local:ZoomableBorder>
         <Grid Grid.Row="1" Grid.Column="0">
             <Grid.RowDefinitions>
@@ -25,8 +25,9 @@
             <TextBox Name="TitleTextBox" Grid.Row="0" Grid.Column="0" KeyUp="TitleTextBox_KeyUp" LostFocus="TitleTextBox_LostFocus"></TextBox>
             <Grid Grid.Row="1" Grid.Column="0">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="3*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
@@ -38,8 +39,10 @@
                 <Button Name="LoadButton"  Grid.Row="1" Grid.Column="0" Click="LoadButton_Click">Load</Button>
                 <Button Name="SaveButton"  Grid.Row="1" Grid.Column="1" Click="SaveButton_Click">Save</Button>
 
-                <Button Name="ZoomOriginalSizeButton"  Grid.Row="0" Grid.Column="2" Click="ZoomOriginalSizeButton_Click">Fill</Button>
-                <Button Name="ImageStretchButton"  Grid.Row="1" Grid.Column="2" Click="ImageStretchButton_Click">No Stretch</Button>
+                <Button Name="ZoomOriginalSizeButton"  Grid.Row="0" Grid.Column="2" Click="ZoomOriginalSizeButton_Click">Original</Button>
+                <Button Name="ImageStretchButton"  Grid.Row="1" Grid.Column="2" Click="ImageStretchButton_Click">Stretch</Button>
+
+                <Button Name="SizeToContentButton"  Grid.Row="0" Grid.Column="3" Grid.RowSpan="2" Click="SizeToContentButton_Click"></Button>
             </Grid>
         </Grid>
     </Grid>

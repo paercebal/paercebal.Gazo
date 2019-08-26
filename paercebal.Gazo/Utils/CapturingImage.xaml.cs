@@ -50,6 +50,8 @@ namespace paercebal.Gazo.Utils
             this.Top = SystemParameters.VirtualScreenTop;
             this.Width = SystemParameters.VirtualScreenWidth;
             this.Height = SystemParameters.VirtualScreenHeight;
+
+            this.Cursor = Cursors.Cross;
         }
 
         public void SetImage(System.Drawing.Bitmap bitmap_)

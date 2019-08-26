@@ -25,6 +25,7 @@ namespace paercebal.Gazo.Utils
         {
             InitializeComponent();
             this.Background = Utils.Globals.GreyShadesCheckeredBrush;
+            this.SetZoomAndStretchButtonNames();
             //this.Icon = BitmapFrame.Create(new Uri("pack://application:,,,/paercebal.Gazo;component/Icons8-Windows-8-Editing-Screenshot - Black-Background.ico"));
         }
 
@@ -38,11 +39,13 @@ namespace paercebal.Gazo.Utils
                     BitmapSizeOptions.FromEmptyOptions());
                 }
             }
+            this.SizeToContent = SizeToContent.WidthAndHeight;
         }
 
         public void SetImage(System.Windows.Media.Imaging.BitmapSource bitmap)
         {
             this.CopiedImage.Source = bitmap;
+            this.SizeToContent = SizeToContent.WidthAndHeight;
         }
 
         public void SetName(string name)
@@ -127,6 +130,20 @@ namespace paercebal.Gazo.Utils
             this.ZoomBorder.Reset();
         }
 
+        private void SetZoomAndStretchButtonNames()
+        {
+            if (this.CopiedImage.Stretch == Stretch.Uniform)
+            {
+                this.ZoomOriginalSizeButton.Content = "Fill";
+                this.ImageStretchButton.Content = "No Stretch";
+            }
+            else
+            {
+                this.ZoomOriginalSizeButton.Content = "Original";
+                this.ImageStretchButton.Content = "Stretch";
+            }
+        }
+
         private void ImageStretchButton_Click(object sender, RoutedEventArgs e)
         {
             this.ZoomBorder.Reset();
@@ -134,18 +151,23 @@ namespace paercebal.Gazo.Utils
             if (this.CopiedImage.Stretch == Stretch.Uniform)
             {
                 this.CopiedImage.Stretch = Stretch.None;
-                this.ZoomOriginalSizeButton.Content = "Original";
-                this.ImageStretchButton.Content = "Stretch";
             }
             else
             {
                 this.CopiedImage.Stretch = Stretch.Uniform;
-                this.ZoomOriginalSizeButton.Content = "Fill";
-                this.ImageStretchButton.Content = "No Stretch";
             }
 
+            this.SetZoomAndStretchButtonNames();
         }
 
         #endregion WPF events
+
+        private void SizeToContentButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.CopiedImage.Stretch == Stretch.None)
+            {
+                this.SizeToContent = SizeToContent.WidthAndHeight;
+            }
+        }
     }
 }
